@@ -257,6 +257,17 @@
         object-fit: contain;
       }
 
+      .poster-placeholder {
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
       .eyebrow {
         display: block;
         margin-bottom: 16px;
@@ -297,15 +308,15 @@
 
       body.detail-theme {
         color-scheme: dark;
-        --bg: #030303;
-        --panel: #080808;
-        --panel-soft: #0d0d0d;
-        --text: #f4f4f4;
-        --muted: #aaa;
+        --bg: var(--detail-bg, #030303);
+        --panel: var(--detail-panel, #080808);
+        --panel-soft: var(--detail-panel, #0d0d0d);
+        --text: var(--detail-text, #f4f4f4);
+        --muted: var(--detail-muted, #aaa);
         --quiet: #686868;
         --line: rgba(255, 255, 255, 0.09);
         --line-strong: rgba(255, 255, 255, 0.22);
-        --accent: #ffffff;
+        --accent: var(--detail-accent, #ffffff);
         background:
           radial-gradient(circle at 10% 0%, rgba(50, 55, 64, 0.18), transparent 28rem),
           radial-gradient(circle at 90% 10%, rgba(30, 30, 38, 0.22), transparent 30rem),
@@ -425,6 +436,25 @@
         font-size: 14px;
       }
 
+      .project-tagline {
+        margin: 24px 0;
+        color: var(--text);
+        font-family: var(--serif);
+        font-size: 22px;
+        font-style: italic;
+      }
+
+      .admin-link {
+        color: inherit;
+        opacity: 0.72;
+        text-decoration: none;
+      }
+
+      .admin-link:hover {
+        color: var(--accent);
+        opacity: 1;
+      }
+
       .contact-panel {
         max-width: 720px;
         margin: 0 auto;
@@ -507,31 +537,7 @@
             </div>
           </section>
 
-          <section class="featured-production">
-            <div class="wrap feature">
-              <button class="poster-frame" data-view="moving-forward" aria-label="Open Moving Forward project">
-                <img src="images/projects/moving-forward/poster.jpg" alt="Moving Forward poster" />
-              </button>
-              <div>
-                <span class="eyebrow">Featured Project In Production</span>
-                <h2 class="project-title">Moving Forward</h2>
-                <span class="tag">Short dramatic film / In Production</span>
-                <p class="copy">
-                  Moving Forward is a short dramatic film about grief, perspective, and learning how to keep living after loss.
-                  The story follows a protagonist whose friend helps him understand that people often carry unseen struggles,
-                  and that healing sometimes means choosing to move forward one step at a time.
-                </p>
-                <ul class="theme-list">
-                  <li>Grief</li>
-                  <li>Perspective</li>
-                  <li>Mental health</li>
-                  <li>Hidden struggles</li>
-                  <li>Friendship</li>
-                </ul>
-                <p><button class="button" data-view="moving-forward">View Project</button></p>
-              </div>
-            </div>
-          </section>
+          <section class="featured-production" id="featured-project"></section>
         </div>
 
         <div class="view" id="projects">
@@ -539,85 +545,12 @@
             <div class="wrap">
               <span class="eyebrow">Directorial Portfolio</span>
               <h1 class="page-title">Filmography & In-Production Work</h1>
-              <div class="grid" style="margin-top: 34px;">
-                <article class="card">
-                  <button class="poster-frame small" data-view="moving-forward" aria-label="Open Moving Forward project">
-                    <img src="images/projects/moving-forward/poster.jpg" alt="Moving Forward poster" />
-                  </button>
-                  <h2>Moving Forward</h2>
-                  <span class="tag">Short dramatic film / In Production</span>
-                  <p>
-                    A short dramatic film about grief, perspective, friendship, and learning to keep moving forward after loss.
-                  </p>
-                  <button class="button" data-view="moving-forward">Enter Project</button>
-                </article>
-              </div>
+              <div class="grid" id="projects-grid" style="margin-top: 34px;"></div>
             </div>
           </section>
         </div>
 
-        <div class="view" id="moving-forward">
-          <section>
-            <div class="wrap detail">
-              <div class="poster-frame">
-                <img src="images/projects/moving-forward/poster.jpg" alt="Moving Forward poster" />
-              </div>
-              <div>
-                <span class="eyebrow">Short Dramatic Film</span>
-                <h1 class="project-title">Moving Forward</h1>
-                <span class="tag">In production / portfolio entry only</span>
-                <p class="copy">
-                  Moving Forward is a short dramatic film about grief, perspective, and learning how to keep living after loss.
-                  The story follows a protagonist whose friend helps him understand that people often carry unseen struggles,
-                  and that healing sometimes means choosing to move forward one step at a time.
-                </p>
-                <ul class="theme-list">
-                  <li>Grief</li>
-                  <li>Perspective</li>
-                  <li>Mental health</li>
-                  <li>Hidden struggles</li>
-                  <li>Friendship</li>
-                  <li>Moving forward after loss</li>
-                </ul>
-                <div class="notice">
-                  Screenplay available by request for appropriate production conversations.
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div class="wrap">
-              <span class="eyebrow">Credits</span>
-              <div class="credits">
-                <dl>
-                  <dt>Presented By</dt>
-                  <dd>CEC</dd>
-                  <dt>Production</dt>
-                  <dd>JPHSLS Production</dd>
-                  <dt>Film By</dt>
-                  <dd>Simon Brookes</dd>
-                  <dt>Starring</dt>
-                  <dd>Lion Ciuffreda and Preston Fitzgerald</dd>
-                  <dt>Music By</dt>
-                  <dd>Enzo Alves</dd>
-                  <dt>Editor</dt>
-                  <dd>Enzo Alves</dd>
-                  <dt>Production Designer</dt>
-                  <dd>Preston Fitzgerald</dd>
-                  <dt>Director of Photography</dt>
-                  <dd>Jonah Benvie</dd>
-                  <dt>Executive Producer</dt>
-                  <dd>Preston Fitzgerald</dd>
-                  <dt>Written By</dt>
-                  <dd>Preston Fitzgerald</dd>
-                  <dt>Directed By</dt>
-                  <dd>Simon Brookes</dd>
-                </dl>
-              </div>
-            </div>
-          </section>
-        </div>
+        <div class="view" id="project-detail"></div>
 
         <div class="view" id="about">
           <section>
@@ -652,34 +585,10 @@
 
       <footer>
         <span>&copy; <span id="year"></span> Simon J Brookes. All rights reserved.</span>
-        <span>Direct inquiries welcome</span>
+        <span><a class="admin-link" href="admin.html">Admin Login</a> &nbsp; / &nbsp; Direct inquiries welcome</span>
       </footer>
     </div>
 
-    <script>
-      const views = Array.from(document.querySelectorAll(".view"));
-      const navButtons = Array.from(document.querySelectorAll("[data-view]"));
-      const brandLogo = document.getElementById("brand-logo");
-
-      function showView(viewId) {
-        const nextView = document.getElementById(viewId) ? viewId : "home";
-        const isMovingForward = nextView === "moving-forward";
-        document.body.classList.toggle("detail-theme", isMovingForward);
-        brandLogo.src = isMovingForward ? "images/branding/logo-3.png" : "images/branding/logo-2.png";
-        views.forEach((view) => view.classList.toggle("active", view.id === nextView));
-        navButtons.forEach((button) => button.classList.toggle("active", button.dataset.view === nextView));
-        if (location.hash !== "#" + nextView) {
-          history.replaceState(null, "", "#" + nextView);
-        }
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      navButtons.forEach((button) => {
-        button.addEventListener("click", () => showView(button.dataset.view));
-      });
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-      showView(location.hash ? location.hash.slice(1) : "home");
-    </script>
+    <script type="module" src="assets/site.js"></script>
   </body>
 </html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Portfolio Admin | Simon J Brookes</title>
+    <link rel="stylesheet" href="assets/admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <a href="index.html"><img src="images/branding/logo-2.png" alt="Simon Brookes" /></a>
+      <div class="header-actions">
+        <span id="account-label">Private portfolio editor</span>
+        <button id="sign-out" class="quiet-button" hidden>Sign Out</button>
+        <a class="quiet-button" href="index.html">View Website</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="login-panel" class="login-panel">
+        <span class="eyebrow">Private Administration</span>
+        <h1>Portfolio Editor</h1>
+        <p>Sign in with the authorized Google account to manage projects.</p>
+        <button id="google-login" class="primary-button">Continue With Google</button>
+        <p id="login-message" class="message"></p>
+      </section>
+
+      <section id="admin-app" hidden>
+        <aside class="project-sidebar">
+          <div class="sidebar-heading">
+            <div>
+              <span class="eyebrow">Projects</span>
+              <h2>Portfolio</h2>
+            </div>
+            <button id="new-project" class="icon-button" title="Create project" aria-label="Create project">+</button>
+          </div>
+          <div id="project-list" class="project-list"></div>
+        </aside>
+
+        <section class="editor">
+          <div class="editor-toolbar">
+            <div>
+              <span class="eyebrow">Project Editor</span>
+              <h1 id="editor-title">New Project</h1>
+            </div>
+            <div class="toolbar-actions">
+              <button id="duplicate-project" class="quiet-button" type="button">Duplicate</button>
+              <button id="delete-project" class="danger-button" type="button">Delete</button>
+              <button id="save-project" class="primary-button" type="submit" form="project-form">Save Project</button>
+            </div>
+          </div>
+
+          <p id="editor-message" class="message"></p>
+
+          <form id="project-form">
+            <input id="project-id" name="id" type="hidden" />
+            <div class="status-row">
+              <label class="check-control"><input name="is_published" type="checkbox" /> Published</label>
+              <label class="check-control"><input name="is_featured" type="checkbox" /> Featured on homepage</label>
+            </div>
+
+            <div class="form-grid">
+              <label>Project title<input name="title" required /></label>
+              <label>URL name<input name="slug" required pattern="[a-z0-9]+(?:-[a-z0-9]+)*" /></label>
+              <label>Project type<input name="project_type" placeholder="Short Dramatic Film" /></label>
+              <label>Status<input name="status" placeholder="In Production" /></label>
+            </div>
+
+            <label>Tagline<input name="tagline" /></label>
+            <label>Short summary<textarea name="summary" rows="3"></textarea></label>
+            <label>Full description<textarea name="description" rows="6"></textarea></label>
+
+            <div class="form-grid">
+              <label>Actors<input name="actors" /></label>
+              <label>Production company<input name="production_company" /></label>
+            </div>
+
+            <label>Theme tags <small>Separate with commas</small><input name="tags" /></label>
+            <label>Credits <small>One per line, written as Role: Name</small><textarea name="credits" rows="8"></textarea></label>
+
+            <fieldset>
+              <legend>Project Page Theme</legend>
+              <div id="theme-options" class="theme-options"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Poster</legend>
+              <div class="poster-controls">
+                <img id="poster-preview" alt="Poster preview" hidden />
+                <div>
+                  <label>Current poster URL<input name="poster_url" /></label>
+                  <label>Upload replacement poster<input id="poster-file" type="file" accept="image/jpeg,image/png,image/webp" /></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Manual Teaser And Reveal Controls</legend>
+              <p class="field-help">Private hides the information. Teaser shows your teaser text. Revealed shows the real information.</p>
+              <div id="reveal-controls" class="reveal-controls"></div>
+            </fieldset>
+
+            <details>
+              <summary>Teaser substitute text</summary>
+              <div class="form-grid teaser-fields">
+                <label>Teaser title<input name="teaser_title" placeholder="Coming Soon" /></label>
+                <label>Teaser tagline<input name="teaser_tagline" /></label>
+                <label>Teaser summary<textarea name="teaser_summary" rows="3"></textarea></label>
+                <label>Teaser description<textarea name="teaser_description" rows="3"></textarea></label>
+                <label>Teaser actors<input name="teaser_actors" /></label>
+                <label>Teaser production company<input name="teaser_production_company" /></label>
+                <label>Teaser credits<input name="teaser_credits" /></label>
+                <label>Teaser poster URL<input name="teaser_poster_url" /></label>
+              </div>
+            </details>
+          </form>
+        </section>
+
+        <aside class="preview-panel">
+          <span class="eyebrow">Editor Preview</span>
+          <div id="editor-preview"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="assets/admin.js"></script>
+  </body>
+</html>
