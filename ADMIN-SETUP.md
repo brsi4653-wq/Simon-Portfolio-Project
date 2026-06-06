@@ -22,7 +22,7 @@ In **Authentication -> URL Configuration**, use:
 
 Keep the existing Google callback URL configured in Google OAuth:
 
-`https://ldgkmvvwpojvsxlveft.supabase.co/auth/v1/callback`
+`https://ldgkmvfvvpojvsxlveft.supabase.co/auth/v1/callback`
 
 ## Publish The Website
 
