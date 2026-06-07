@@ -161,7 +161,7 @@ function showProject(slug) {
 }
 
 async function loadProjects() {
-  const { data, error } = await supabase.rpc("get_public_projects");
+  const { data, error } = await supabase.from("public_projects").select("*");
   if (!error && Array.isArray(data) && data.length) {
     projects = data.map(normalizeProject);
   }
