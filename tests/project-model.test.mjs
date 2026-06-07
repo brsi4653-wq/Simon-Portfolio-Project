@@ -16,6 +16,12 @@ assert.equal(publicField("revealed", "Real", "Tease", "Generic"), "Real");
 
 assert.equal(getTheme("black").logo, "images/branding/logo-3.png");
 assert.equal(getTheme("does-not-exist").name, "Orange");
+assert.equal(getTheme("red").accent, "#ff3131");
+assert.equal(getTheme("blue").accent, "#38b6ff");
+assert.equal(getTheme("green").accent, "#7ed957");
+assert.equal(getTheme("yellow").accent, "#ff9e4f");
+assert.equal(getTheme("red").isLight, true);
+assert.equal(getTheme("black").isLight, false);
 
 const featured = getFeaturedProject([
   { slug: "one", is_featured: false },

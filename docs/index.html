@@ -347,6 +347,27 @@
         background: rgba(0, 0, 0, 0.04);
       }
 
+      body.detail-theme.detail-light {
+        color-scheme: light;
+        --quiet: var(--detail-muted, #74523f);
+        --line: color-mix(in srgb, var(--detail-text, #402416) 16%, transparent);
+        --line-strong: color-mix(in srgb, var(--detail-accent, #ff8d47) 55%, transparent);
+        background: var(--detail-bg, #fff3e3);
+      }
+
+      body.detail-theme.detail-light::before {
+        background-image: linear-gradient(rgba(50, 30, 20, 0.035) 1px, transparent 1px);
+      }
+
+      body.detail-theme.detail-light .site {
+        border-color: var(--detail-accent, #ff8d47);
+      }
+
+      body.detail-theme.detail-light .credits,
+      body.detail-theme.detail-light .card {
+        background: var(--detail-panel, #fff8ee);
+      }
+
       .copy {
         max-width: 760px;
         font-size: 15px;
@@ -589,6 +610,6 @@
       </footer>
     </div>
 
-    <script type="module" src="assets/site.js?v=3"></script>
+    <script type="module" src="assets/site.js?v=4"></script>
   </body>
 </html>

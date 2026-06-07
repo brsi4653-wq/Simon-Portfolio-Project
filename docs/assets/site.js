@@ -105,6 +105,7 @@ function renderProjects() {
 
 function renderDetail(project) {
   const theme = getTheme(project.theme);
+  document.body.classList.toggle("detail-light", Boolean(theme.isLight));
   document.body.style.setProperty("--detail-bg", theme.background);
   document.body.style.setProperty("--detail-panel", theme.panel);
   document.body.style.setProperty("--detail-text", theme.text);
@@ -142,6 +143,7 @@ function bindProjectButtons() {
 function showView(viewId) {
   const nextView = document.getElementById(viewId) ? viewId : "home";
   document.body.classList.remove("detail-theme");
+  document.body.classList.remove("detail-light");
   brandLogo.src = "images/branding/logo-2.png";
   views.forEach((view) => view.classList.toggle("active", view.id === nextView));
   navButtons.forEach((button) => button.classList.toggle("active", button.dataset.view === nextView));
