@@ -164,7 +164,9 @@ async function saveProject(event) {
       ? await supabase.from("projects").update(project).eq("id", id).select().single()
       : await supabase.from("projects").insert(project).select().single();
     if (result.error) throw result.error;
-    setMessage("Project saved.");
+    setMessage(project.is_published
+      ? "Project saved and published. It is now visible on the public website."
+      : "Draft saved privately. Click Publish Project when you want it visible on the public website.");
     await loadProjects();
     fillForm(result.data);
   } catch (error) {
@@ -220,6 +222,10 @@ form.addEventListener("input", () => {
 document.getElementById("new-project").addEventListener("click", resetForm);
 document.getElementById("delete-project").addEventListener("click", deleteProject);
 document.getElementById("duplicate-project").addEventListener("click", duplicateProject);
+document.getElementById("publish-project").addEventListener("click", () => {
+  form.elements.is_published.checked = true;
+  form.requestSubmit();
+});
 document.getElementById("google-login").addEventListener("click", () => supabase.auth.signInWithOAuth({
   provider: "google",
   options: {
